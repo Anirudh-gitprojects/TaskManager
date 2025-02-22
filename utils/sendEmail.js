@@ -4,8 +4,8 @@ const transporter = nodemailer.createTransport({
   service: 'gmail',
 
   auth: {
-    user: 'ani.chessmater@gmail.com',
-    pass:'igco oymq ytqc wuep',
+    user: process.env.SMTP_EMAIL,
+    pass: process.env.SMTP_PASS,
   },
   tls: {
     rejectUnauthorized: false,
@@ -23,7 +23,7 @@ const sendEmail=async(options)=> {
 
   
   console.log("Message sent: %s", message.messageId);
-  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+
 }
 
 module.exports=sendEmail;

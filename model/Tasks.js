@@ -1,6 +1,8 @@
 
 const mongoose= require('mongoose')
 const slugify = require('slugify');
+
+// Task Schema 
 const TaskSchema=new mongoose.Schema({
 
 

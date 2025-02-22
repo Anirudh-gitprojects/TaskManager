@@ -66,7 +66,7 @@ exports.login=async(req,res,next)=>{
 
 // @desc Get Current User
 // @route POST /api/v1/auth/me
-// @access Pruvate
+// @access Private
 exports.getMe=async(req,res,next)=>{
     try{ 
         const user = await User.findById(req.user.id)
@@ -82,6 +82,9 @@ exports.getMe=async(req,res,next)=>{
 }
 
 
+// @desc Forgot Password
+// @route POST /api/v1/auth/forgotPassword
+// @access Public
 exports.forgotPassword = async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
 
@@ -120,6 +123,9 @@ exports.forgotPassword = async (req, res, next) => {
 };
 
 
+// @desc Reset Password
+// @route POST /api/v1/auth/resetPassword
+// @access Public
 exports.resetPassword=async(req,res,next)=>{
     const { email, otp, newPassword } = req.body;
     console.log(otp)
